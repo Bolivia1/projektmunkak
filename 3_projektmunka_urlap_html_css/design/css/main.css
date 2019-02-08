@@ -1,0 +1,104 @@
+@font-face {/*címekhez*/
+    src: url(../font/Constantine.ttf);
+    font-family: Constantine; 
+}
+@font-face {/*Kenyérszöveghez*/
+    src: url(../font/LiberationSerif-Regular.ttf);
+    font-family: Liberation; 
+}
+
+body {
+		background-color: #e8d0e0;
+		font-family: Liberation;
+		height: 2800px;		
+	}
+
+.no-style {
+	list-style-type: none;
+	
+}
+	
+div {
+		position: absolute;
+		right: 50px;
+		top: 10px;	
+	}
+	
+img {
+		border-radius: 10px;
+		opacity: 0.5;
+	}
+	
+h1 {	
+		text-align: center;
+		margin-top: 100px;
+		font-family: Constantine;		
+		color: #33510b;
+	}
+	
+h2 {
+		margin-left: 7%;
+		font-family: Constantine;
+		color: #33510b;
+	}
+	
+ol {
+	font-size: 20px;
+	font-weight: bold;
+	
+}	
+	
+ul {
+		padding-bottom: 20px;
+	}
+	
+ul li a {
+		text-decoration: none;
+		font-weight: bold;
+		font-size: 18px;
+		color: #577f22;
+		margin-left: 3.5%;
+	}
+	
+a {
+		text-decoration: none;
+		font-weight: bold;
+		font-size: 22px;
+		color: #ba1baa;
+		padding-top: 10px;
+	}
+	
+a:hover {
+		color: #6fa02e;
+		font-size: 18pt;
+		padding-top: 0px;
+		transition: all 1s;
+	}
+		
+li {
+		margin: 10px;
+	}
+
+
+a {
+	margin-left: 7%;
+	color: #33510b;
+	
+}
+
+.parallax {
+	position: fixed;
+	bottom: 0;
+	width: 92.8%;
+	margin: auto;
+    background-image: url(../img/pannon.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+	z-index: -1000;
+	opacity: 0.5;
+}
+
+.parallax+p {
+	margin-bottom: 10px;
+}	

@@ -1,0 +1,39 @@
+body {
+	height: 1600px;
+			
+	}
+		
+ol {
+	padding-bottom: 20px;			
+}
+		
+ol li ol {
+	width: 93%;
+	margin: auto;
+	background-color: #f2e6e7;
+	border-radius: 4px;
+}
+
+ol li ol:hover {
+	color: #6fa02e;
+	
+}
+
+	
+}
+
+label {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+p {
+	font-size: 18px;
+	margin-top: 0;
+	color: #424f3b;
+	font-family: Liberation;
+}
+
+.parallax+p {
+	margin-bottom: 10px;
+}

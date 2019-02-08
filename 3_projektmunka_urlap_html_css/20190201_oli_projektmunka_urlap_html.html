@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="design/css/main.css" type="text/css">
+	<link rel="stylesheet" href="design/css/urlap.css" type="text/css">
+	<link rel="shortcut icon" href="logo.png" type="image/x-icon">
+	<title>Regisztrációs űrlap</title>
+	
+
+</head>
+
+<body>
+	<div>
+		<a href="https://allas.pannonwork.hu/allaskereso" target="_blank"><img src="logo.png" alt="ceglogo"></a>
+	</div>
+
+	<nav>
+		<a href="20190201_oli_kitoltesi_utmutato_html.html">Ugrás a kitöltési útmutatóra</a>
+	</nav>
+
+	<h1>Álláskeresés regisztrációs űrlap</h1>
+	<h2 id="tartalom">Tartalom</h2>
+	<ul style="list-style-type: none;">
+		<li><a href="#szemelyes">Személyes adatok</a></li>
+		<li><a href="#vegzettseg">Végzettség, szakmai tapasztalat</a></li>
+		<li><a href="#nyelvismeret">Nyelvismeret</a></li>
+		<li><a href="#elvarasok">Elvárások az állással kapcsolatban</a></li>
+	</ul>
+
+	<form method="post">
+		<ol class="no-style">
+			<li>
+				<fieldset>
+					<legend id="szemelyes"><a href="20190201_oli_kitoltesi_utmutato_html.html#szemelyes" title="Ugrás a kitöltési útmutatóra">Személyes adatok</a></legend>
+					<ol>
+						<li><label for="nev">Név: </label><input id="nev" type="text" name="name" placeholder="Trap Pista" required></li>
+						<li><label for="email">E-mail cím: </label><input id="email" type="email" name="email" placeholder="trappista@cheddar.hu"
+							 required></li>
+
+						<li><label for="szuldatum">Születési dátum: </label><input id="szuldatum" type="date" name="szuldatum" value="1999-09-09"
+							 required></li>
+						<li>
+							<label for="gender">Neme: </label>
+
+							<select id="gender" name="gender">
+								<option disabled="true" selected="true" value="0">Kérjük válasszon</option>
+								<option value="1">Férfi</option>
+								<option value="2">Nő</option>
+								<option value="3">Robot</option>
+							</select>
+						</li>
+						<li><label for="jelszo">Jelszó: </label><input id="jelszo" type="password" name="jelszo" placeholder="Erős jelszót adjon meg!"
+							 required></li>
+						<li><label for="jelszo1">Jelszó megerősítése: </label><input id="jelszo1" type="password" name="jelszo1"
+							 placeholder="Jelszó újra" required></li>
+					</ol>
+				</fieldset>
+			</li>
+
+			<li>
+				<fieldset>
+					<legend id="vegzettseg"><a href="20190201_oli_kitoltesi_utmutato_html.html#vegzettseg" title="Ugrás a kitöltési útmutatóra">Végzettség, szakmai tapasztalat</a></legend>
+					<ol style="list-style-type: none;">
+						<li><label>1. Iskolai végzettség: </label><br />
+							<input id="alapfoku" type="radio" name="vegzettseg" value="1"><label class="vekonybetu" for="alapfoku">Alapfokú</label><br />
+							<input id="kozepfoku" type="radio" name="vegzettseg" value="2"><label class="vekonybetu" for="kozepfoku">Középfokú</label><br />
+							<input id="felsofoku" type="radio" name="vegzettseg" value="3"><label class="vekonybetu" for="felsofoku">Felsőfokú</label>
+						</li>
+
+						<li><label for="vegzEv">2. Végzettség megszerzésének éve: </label><input id="vegzEv" type="text" name="vegzEv"
+							 placeholder="2018" pattern="[1-2]\[9-0]\d\d" title="négyszámjegyű formátum">
+						</li>
+						<li><label for="intezmeny">3. Oklevélkibocsátó intézmény neve: </label><input id="intezmeny" type="text" name="intezmeny"
+							 placeholder="ELTE ÁJK"></li>
+
+						<li>
+							<label>4. Szakmai tapasztalat: </label>
+							<input id="tapasztalat1" type="radio" name="tapasztalat" value="1"><label class="vekonybetu" for="tapasztalat1">0-2 év</label>
+							<input id="tapasztalat2" type="radio" name="tapasztalat" value="2"><label class="vekonybetu" for="tapasztalat2">3-5 év</label>
+							<input id="tapasztalat3" type="radio" name="tapasztalat" value="3"><label class="vekonybetu" for="tapasztalat3">6-9 év</label>
+							<input id="tapasztalat4" type="radio" name="tapasztalat" value="4"><label class="vekonybetu" for="tapasztalat4">Több mint
+								10 év</label>
+
+						</li>
+
+						<li><label for="oneletrajz">Önéletrajz feltöltése </label><br />
+							<input id="oneletrajz" type="file" name="oneletrajz"></li>
+					</ol>
+				</fieldset>
+			</li>
+
+			<li>
+				<fieldset>
+					<legend id="nyelvismeret"><a href="20190201_oli_kitoltesi_utmutato_html.html#nyelvismeret" title="Ugrás a kitöltési útmutatóra">Nyelvismeret</a></legend>
+					<ol>
+						<li><label>Kérjük, hogy az alábbi táblázatban jelölje nyelvismeretét: </label><br /><br />
+							<table>
+								<thead>
+									<tr>
+										<th></th>
+										<th>Alapfok szóban</th>
+										<th>Alapfok írásban</th>
+										<th>Középfok szóban</th>
+										<th>Középfok írásban</th>
+										<th>Felsőfok szóban</th>
+										<th>Felsőfok írásban</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr>
+										<th><label>Angol</label></th>
+										<td><input type="checkbox" name="angol1"></td>
+										<td><input type="checkbox" name="angol2"></td>
+										<td><input type="checkbox" name="angol3"></td>
+										<td><input type="checkbox" name="angol4"></td>
+										<td><input type="checkbox" name="angol5"></td>
+										<td><input type="checkbox" name="angol6"></td>
+									</tr>
+									<tr>
+										<th><label>Német</label></th>
+										<td><input type="checkbox" name="nemet1"></td>
+										<td><input type="checkbox" name="német2"></td>
+										<td><input type="checkbox" name="német3"></td>
+										<td><input type="checkbox" name="német4"></td>
+										<td><input type="checkbox" name="német5"></td>
+										<td><input type="checkbox" name="német6"></td>
+									</tr>
+
+									<tr>
+										<th><label for="egyeb">Egyéb <input id="egyeb" type="text" name="egyeb"></label></th>
+										<td><input type="checkbox" name="egyeb1"></td>
+										<td><input type="checkbox" name="egyeb2"></td>
+										<td><input type="checkbox" name="egyeb3"></td>
+										<td><input type="checkbox" name="egyeb4"></td>
+										<td><input type="checkbox" name="egyeb5"></td>
+										<td><input type="checkbox" name="egyeb6"></td>
+									</tr>
+								</tbody>
+							</table>
+						</li>
+
+						<li><label> Élt-e huzamosabb ideig külföldön? </label><br />
+							<input id="kulfoldIgen" type="radio" name="kulfold" value="1"><label class="vekonybetu" for="kulfoldIgen">Igen</label><br />
+							<input id="kulfoldNem" type="radio" name="kulfold" value="2"><label class="vekonybetu" for="kulfoldNem">Nem</label><br />
+						</li>
+
+						<li><label for="eltKulfoldon"> Ha igen, hol és mennyi ideig? </label><br />
+							<textarea id="eltKulfoldon" name="eltKulfoldon" rows="6" cols="40" placeholder="Írja le néhány mondatban."></textarea><br />
+
+						</li>
+					</ol>
+				</fieldset>
+			</li>
+			<li>
+				<fieldset>
+					<legend id="elvarasok"><a href="20190201_oli_kitoltesi_utmutato_html.html#elvarasok" title="Ugrás a kitöltési útmutatóra">Elvárások az állással kapcsolatban</a></legend>
+					<ol>
+						<li><label for="munkakor"> Válasszon munkakört! Több opció is megjelölhető:</label><br />
+							<select id="munkakor" name="munkakor" multiple="true" size="10">
+								<optgroup label="Irodai adminisztrációs munka">
+									<option value="1">Irodavezető/titkárnő</option>
+									<option value="2">Recepciós</option>
+									<option value="3">Menedzserasszisztens</option>
+									<option value="4">Adminisztrátor</option>
+								</optgroup>
+
+								<optgroup label="Pedagógusi munka">
+									<option value="5">Általános iskolai tanár</option>
+									<option value="6">Középiskolai tanár</option>
+									<option value="7">Óvodapedagógus</option>
+									<option value="8">Gyógypedagógus</option>
+								</optgroup>
+
+								<optgroup label="Vezetői munka">
+									<option value="9">Ügyvezető</option>
+									<option value="10">Középvezető</option>
+									<option value="11">Projektkoordinátor</option>
+									<option value="12">Művezető</option>
+								</optgroup>
+
+							</select>
+						</li>
+
+						<li><label>Munkaidővel kapcsolatos elvárások: </label><br />
+							<input id="munkaido1" type="radio" name="munkaido" value="1" checked="true"><label class="vekonybetu" for="munkaido1">Nincs
+								megkötés</label><br />
+							<input id="munkaido2" type="radio" name="munkaido" value="2"><label for="munkaido2" class="vekonybetu">Részmunkaidő</label><br />
+							<input id="munkaido3" type="radio" name="munkaido" value="3"><label for="munkaido3" class="vekonybetu">Teljes
+								munkaidő</label><br />
+						</li>
+
+						<li><label for="fizigeny">Nettó fizetési igény (Ft): </label><input id="fizigeny" type="number" name="fizigeny"
+							 placeholder="1 000 000">Ft</li>
+
+					</ol>
+				</fieldset>
+			</li>
+
+		</ol>
+
+		<input type="checkbox" name="hirlevel" id="hirlevel" checked="true"><label for="hirlevel">Feliratkozom a hírlevélre</label><br />
+		<input type="checkbox" name="ertesites" id="ertesites" checked="true"><label for="ertesites">Értesítést kérek
+			e-mailben az új állásokról</label><br />
+		<button type="submit">Regisztrálok</button>
+		<button type="reset">Mégsem</button>
+	</form>
+		<div class="parallax">
+            
+        </div>
+		<p><a href="#tartalom">Ugrás az oldal tetejére</a></p>
+</body>
+
+</html>

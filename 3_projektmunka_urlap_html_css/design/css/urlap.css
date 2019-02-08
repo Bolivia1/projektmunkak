@@ -1,0 +1,254 @@
+fieldset {
+	background-color: #f2f1ed;
+	border: none;
+	border-radius: 4px;
+	width: 92.5%;
+	margin: auto;
+}
+	
+fieldset:first-child{
+	padding-bottom: 40px;	
+}
+		
+legend {
+	border: solid 2px #d1ddc1;
+	border-radius: 4%;
+	box-shadow: 0 2px 5px;
+	padding: 5px;
+	font-size: 24px;
+	font-weight: bold;
+	background-image: linear-gradient(#ecefe8, #caf98b);
+}
+               
+legend a {
+	margin-left: 0;
+}
+
+legend a:hover {
+	margin-left: 0;
+}
+
+		
+label {		
+	font-weight: bold;
+	font-size: 20px;
+	padding: 5px;	
+}
+		
+.vekonybetu {
+	font-weight: normal;
+	display: inline-block;
+	padding: 10px 0;
+}	
+
+	
+input, select, textarea {
+	border-radius: 4px;
+}
+
+input[type=text], input[type=number], input[type=email], input[type=date], input[type=password], select, textarea {
+	padding-left: 10px;	
+}
+
+input:focus, select:focus {
+	outline-color: #5fc141;
+	background-color: #efe1ea;
+	transition: all 0.5s;
+	
+}
+
+textarea {
+	margin-top: 10px;
+	border: solid 2px #d1ddc1;
+	font-size: 12pt;
+	box-shadow: 0 0 2px;
+	
+}
+
+textarea:focus {	
+	outline-color: #5fc141;
+	background-color: #efe1ea;
+}
+
+table {
+    border: none;
+    border-spacing: 0;                
+    width: 95%;                                          
+}
+
+table input[type=text] {
+	padding-left: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	
+}
+					
+th, td {		
+	text-align: center;
+	border: none;
+}	
+
+th:first-child, td:first-child {
+	width: 280px;
+	text-align: left;
+	}	
+		
+button {
+	margin-left: 7%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	border: solid 2px #d1ddc1;
+	border-radius: 4%;
+	box-shadow: 0 2px 5px;
+	padding: 15px;
+	font-size: 24px;
+	font-weight: bold;
+	background-image: linear-gradient(#ecefe8, #caf98b);
+	cursor: pointer;
+	}
+	
+	button:hover {
+	color: #6fa02e;
+	background-image: linear-gradient(#caf98b, #ecefe8);		
+}
+
+form > ol > li:nth-child(1) input {
+	position: absolute;
+	display: inline-block;	
+	width: 300px;
+	height: 30px;
+	border: solid 2px #d1ddc1;
+	font-size: 12pt;
+	box-shadow: 0 0 2px;
+	left: 35%;	
+}
+
+form > ol > li:nth-child(1) select {
+	position: absolute;
+	display: inline-block;	
+	width: 315px;
+	height: 34px;
+	border: solid 2px #d1ddc1;
+	font-size: 12pt;
+	box-shadow: 0 0 2px;
+	left: 35%;
+	
+}
+
+
+form > ol > li:nth-child(1) label {
+	display: block;
+	position: relative;
+	top: 22px;	
+}
+
+form>ol>li:nth-child(1)>fieldset ol li label{
+	padding: 15px 0 0 0;	
+}
+
+form>ol>li:nth-child(2)>fieldset ol li {
+	padding-bottom: 20px;	
+}
+
+form>ol>li:nth-child(2)>fieldset ol li input[type=radio], form>ol>li:nth-child(2)>fieldset ol li label{
+	padding: 10px 0;	
+}
+
+input[type=radio]:focus, input[type=checkbox]:focus{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	font-size: 18px;	
+}
+
+form>ol>li:nth-child(2)>fieldset ol li input[type=text], form>ol>li:nth-child(2)>fieldset ol li input[type=number]{
+	position: absolute;
+	display: inline-block;
+	width: 300px;
+	height: 30px;
+	border: solid 2px #d1ddc1;
+	font-size: 12pt;
+	box-shadow: 0 0 2px;
+	left: 40%;
+}
+
+form>ol>li:nth-child(2)>fieldset ol li:nth-child(4) label:nth-child(1) {
+	margin-right: 19%;
+	
+}
+
+#oneletrajz {
+	display: none;
+}
+
+label[for="oneletrajz"] {
+	cursor: pointer;
+	display: inline-block;
+	position: absolute;
+	left: 40%;
+	padding-left: 10px;
+	color: #33510b;
+	width: 200px;
+	height: 30px;
+	border: solid 2px #d1ddc1;
+	font-size: 18pt;
+	box-shadow: 0 0 2px;
+	background-image: linear-gradient(#ecefe8, #caf98b);
+	box-shadow: 0 2px 5px;	
+}
+
+label[for="oneletrajz"]:hover {
+	color: #6fa02e;
+	background-image: linear-gradient(#caf98b, #ecefe8);
+}
+
+#vegzettseg+ol li {
+	margin-left: -1.5%;	
+}
+
+#alapfoku, #kozepfoku, #felsofoku {
+	margin-left: 2%;
+}
+
+table input[type=checkbox] {
+	display: inline-block;
+	position: relative;
+	width: 50px;
+	height: 50px;
+	border: solid 2px #d1ddc1;
+	box-shadow: 0 0 2px;
+}
+
+#egyeb {
+	display: inline-block;
+	width: 200px;
+	height: 20px;
+	border: solid 2px #d1ddc1;
+	font-size: 12pt;
+	box-shadow: 0 0 2px;	
+}
+
+#munkakor {
+	margin-top: 10px;	
+	border: solid 2px #d1ddc1;
+	font-size: 12pt;
+	box-shadow: 0 0 2px;
+}
+
+#fizigeny {
+	position: absolute;
+	display: inline-block;
+	width: 300px;
+	height: 30px;
+	border: solid 2px #d1ddc1;
+	font-size: 12pt;
+	box-shadow: 0 0 2px;	
+}
+
+#hirlevel, #ertesites {
+	margin-left: 7%;	
+}
+
+
+
+	
