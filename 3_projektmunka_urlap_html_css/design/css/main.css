@@ -1,8 +1,8 @@
-@font-face {/*címekhez*/
+@font-face {
     src: url(../font/Constantine.ttf);
     font-family: Constantine; 
 }
-@font-face {/*Kenyérszöveghez*/
+@font-face {
     src: url(../font/LiberationSerif-Regular.ttf);
     font-family: Liberation; 
 }
@@ -91,12 +91,10 @@ a {
 	bottom: 0;
 	width: 92.8%;
 	margin: auto;
-	background-image: url(../img/pannon.jpg);
+    background-image: url(../img/pannon.jpg);
     background-attachment: fixed;
     background-size: cover;
     background-position: center center;
-	z-index: -1000;
-	opacity: 0.5;
 }
 
 .parallax+p {

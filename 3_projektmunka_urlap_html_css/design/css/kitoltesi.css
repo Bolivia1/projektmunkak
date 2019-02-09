@@ -19,8 +19,6 @@ ol li ol:hover {
 	
 }
 
-	
-}
 
 label {
 	font-size: 18px;
@@ -34,6 +32,3 @@ p {
 	font-family: Liberation;
 }
 
-.parallax+p {
-	margin-bottom: 10px;
-}
