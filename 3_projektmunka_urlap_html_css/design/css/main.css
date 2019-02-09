@@ -95,6 +95,8 @@ a {
     background-attachment: fixed;
     background-size: cover;
     background-position: center center;
+	z-index: -1000;
+	opacity: 0.4;
 }
 
 .parallax+p {
