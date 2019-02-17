@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ANSI">
+    <title>Webshop szimulátor</title>
+	<link rel="stylesheet" href="design/css/style.css" type="text/css">
+</head>
+<body>
+	<button id="btnAdmin" type="button">ADMIN belépés</button>
+	<button id="btnVasarlo" type="button">VÁSÁRLÓ belépés</button>
+	
+	<h1>Mûszaki cikkek webshopja</h1>
+	
+	<div id="admin">
+		<h2>Admin felület</h2>
+		<form method="post">
+			<fieldset>
+				<legend>Új termék felvétele a készletbe</legend>
+				
+				<div class="form-div">
+				<label for="termek_id">Termék sorszáma:</label><br>
+				<input id="termek_id" type="textbox"></input>
+				</div>
+				
+				<div class="form-div">
+				<label for="termek_neve">Termék neve:</label><br>
+				<input id="termek_neve" type="textbox"></input>
+				</div>
+				
+				<div class="form-div">
+				<label for="termek_ara">Egységár:</label><br>
+				<input id="termek_ara" type="number"></input>
+				
+				
+				<div class="form-div">
+				<label for="foto_url">Fotó elérési út:</label><br>
+				<input id="foto_url" type="textbox"></input>
+				</div>
+				
+			
+			</fieldset>
+		
+			<button id="btnNewProduct" type="button">Mentés</button>
+		
+		
+		</form>
+		
+	<div id="json" style="width: 500px; overflow: auto; opacity: 0.5"></div>
+	</div>
+	
+	
+	
+	<div id="cikkek">
+		<h2>Árucikkek</h2>
+		<table id="cikkekTabla" border="1" cellspacing="0">
+			<thead>
+				<tr>
+					<th>Termék ID</th>
+					<th>Megnevezés</th>
+					<th>Ár (Ft)</th>
+					<th>Fotó</th>
+					<th id="admin_torol">Törlés</th>
+					<th id="vevo_kosarba">Kosárba</th>
+				</tr>			
+			</thead>
+			
+			<tbody>
+			
+			</tbody>
+	
+		
+		</table>
+	</div>
+	
+	
+	
+	<div id="vasarlo">
+		<h2>Vásárlói felület</h2>
+		
+		<h3>Kosár</h3>
+		<button id="kosarTartalma" type="button"><img src="design/img/kosarGomb.jpg"></button>
+		<p id="szovegKosarUres">Az Ön kosara jelenleg üres.</p>
+		<p id="szovegKosarTartalma">A kosár tartalma:</p>
+		
+		<table id="kosarTabla" border="1" cellspacing="0">
+			<thead>
+				<tr>
+					<th>Termék ID</th>
+					<th>Megnevezés</th>
+					<th>Ár (Ft)</th>					
+					<th id="vevo_kosar_torol">Törlés</th>					
+				</tr>			
+			</thead>
+			<tfoot>
+			<td colspan="2">Összesen</td>
+			<td id="osszegzes" colspan="2"></td>
+			</tfoot>
+			<tbody>
+			
+			</tbody>
+		</table>
+		</div>
+		
+		<button id="kosarUrit" type="button">Kosár ürítése</button>
+	
+	</div>
+	
+    
+    <script type="text/javascript" src="js/termek.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript">
+    
+	window.addEventListener('load', Window_Load_Handler, false);
+	var nodeAdminAccessButton;
+	var nodeClientAccessButton;
+	
+	var nodeAdminDiv;
+	var nodeArticleDiv;
+	var nodeVasarloDiv;	
+	
+	var nodeArticleDeletion;	
+	var nodeShoppingCartTD;
+	
+	var nodeArticlesTable;
+	var nodeArticlesTableJSON;
+	var nodeTBody;
+	
+	var nodesVevoKosar;
+	var nodesAdminTorol;
+	var nodeBtnNewProduct;
+	var nodeBtnKosarTartalma;
+	
+	var objTermek = new Termek('0000', 'szappan', 300, 'http://www.w3.org/html5.jpg');
+	var nodeProductIDTextBox;
+	var nodeProductDescriptionTextBox;
+	var nodeProductPriceTextBox;
+	var nodeProductFotoURLTextBox;
+	
+	var nodeJsonDiv;
+	var nodeArtDelete;
+	var nodeTR;
+	var nodeShoppingCart;
+	
+	var nodesKosarTartalma;
+	var nodeKosarTabla;
+	var nodeOsszegzes;
+	var nodeKosarTablaTartalma;
+	
+	var nodeSzovegKosarUres;
+	var nodeSzovegKosarTartalma;
+	
+	var nodeKosarTablaTorles;
+	var nodeBtnKosarUrit;
+	var nodeKosarTR;
+	var nodeKosarTfoot;
+	
+	function Window_Load_Handler() {
+		console.log('A DOM-fa felépült.');  //kipróbáljuk
+		drawArticleTable();
+		
+		nodeAdminAccessButton = document.querySelector('#btnAdmin');
+		nodeClientAccessButton = document.getElementById('btnVasarlo');
+		nodeBtnNewProduct = document.getElementById('btnNewProduct');
+		nodeArtDelete = document.querySelectorAll('.artDelete');
+		nodeShoppingCart = document.querySelectorAll('.shoppingCart');
+		nodeBtnKosarTartalma = document.getElementById('kosarTartalma');
+		nodeKosarTablaTorles = document.querySelectorAll('.kosarTablaTorles');
+		nodeBtnKosarUrit = document.getElementById('kosarUrit');
+		
+		nodeAdminAccessButton.addEventListener("click", AdminAccessButton_Click_Handler, false);
+		nodeClientAccessButton.addEventListener("click", ClientAccessButton_Click_Handler, false);
+		nodeBtnNewProduct.addEventListener("click", BtnNewProduct_Click_Handler, false);
+		nodeBtnKosarTartalma.addEventListener("click", BtnKosarTartalma_Click_Handler, false );
+		nodeBtnKosarUrit.addEventListener("click", BtnKosarUrit_Click_Handler, false );
+		
+		
+		for (var i=0; i< nodeArtDelete.length; i++) {
+			nodeArtDelete[i].addEventListener("click", ArtDelete_Click_Handler, false);
+		}
+		
+		for (var i=0; i< nodeShoppingCart.length; i++) {
+			nodeShoppingCart[i].addEventListener("click", ShoppingCart_Click_Handler, false);
+		}
+		
+		for (var i=0; i< nodeKosarTablaTorles.length; i++) {
+			nodeKosarTablaTorles[i].addEventListener("click", KosarTablaTorles_Click_Handler, false);
+		}
+		
+	}
+	
+	
+	
+	
+       
+    </script>
+</body>
+</html>
