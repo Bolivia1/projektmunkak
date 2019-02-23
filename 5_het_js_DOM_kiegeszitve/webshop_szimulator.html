@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>Webshop szimulátor</title>
+	<link rel="stylesheet" href="design/css/style.css" type="text/css">
+</head>
+<body>
+	<!-- https://wiki.startlap.hu/wp-content/uploads/2015/02/shutterstock_sun_alma.jpg -->
+	<button id="btnAdmin" type="button">ADMIN belépés</button>
+	<button id="btnVasarlo" type="button">VÁSÁRLÓ belépés</button>
+	
+	<h1>Műszaki cikkek webshopja</h1>
+	
+	<div id="admin">
+		<h2>Admin felület</h2>
+		<form method="post">
+			<fieldset>
+				<legend>Új termék felvitele a készletbe</legend>
+				
+				<div class="form-div">
+				<label for="termek_id">Termék sorszáma:</label><br>
+				<input id="termek_id" type="textbox">
+				</div>
+				
+				<div class="form-div">
+				<label for="termek_neve">Termék neve:</label><br>
+				<input id="termek_neve" type="textbox">
+				</div>
+				
+				<div class="form-div">
+				<label for="termek_ara">Egységár:</label><br>
+				<input id="termek_ara" type="number">
+				
+				
+				<div class="form-div">
+				<label for="foto_url">Fotó elérési út:</label><br>
+				<input id="foto_url" type="textbox">
+				</div>
+				
+			
+			</fieldset>
+		
+			<button id="btnNewProduct" type="button">Mentés</button>
+		
+		
+		</form>
+		
+	<div id="json" style="width: 500px; overflow: auto; opacity: 0.5"></div>
+	</div>
+	
+	
+	
+	<div id="cikkek">		
+		<div id="cikkekTablaDiv1">
+		<form>
+			<div class="keresesSzuresBeviteliMezokDiv">
+				<label for="cikkekTablaDiv1Keresomezo">Keresés</label><br>
+				<input id="cikkekTablaDiv1Keresomezo" type="textbox" onfocus="this.value=''" placeholder="Keresés a cikkek között...">
+			</div>
+		
+			<div class="keresesSzuresBeviteliMezokDiv">
+				<label for="cikkekTablaDiv1SzuresArSzerintKisebb">Szűrés ár szerint</label><br>
+				<input id="cikkekTablaDiv1SzuresArSzerintKisebb" type="number" onfocus="this.value=''" placeholder="Ár kevesebb mint..."><br>
+				<input id="cikkekTablaDiv1SzuresArSzerintNagyobb" type="number" onfocus="this.value=''" placeholder="Ár több mint...">
+			</div>
+			<button id="cikkekTablaAdminSzurokTorlese" type="reset">Szűrők törlése</button>
+		</form>
+		
+		<h2>Árucikkek</h2>
+		<table id="cikkekTabla" border="1" cellspacing="0">
+			<thead>
+				<tr>
+					<th class="rendezesIdTH" title="Sorba rendezés">Termék ID</th>
+					<th class="rendezesMegnevezesTH" title="Rendezés betűrendben">Megnevezés</th>
+					<th class="rendezesArTH" title="Rendezés ár szerint">Ár (Ft)</th>
+					<th>Fotó</th>					
+					<th id="cikk_torles_cella_cimsor">Törlés</th>
+				</tr>			
+			</thead>
+			
+			<tbody>
+			
+			</tbody>
+	
+		
+		</table>
+		</div>
+		
+		<div id="cikkekTablaDiv2">
+		<form>
+			<div class="keresesSzuresBeviteliMezokDiv">
+				<label for="cikkekTablaDiv2Keresomezo">Keresés</label><br>
+				<input id="cikkekTablaDiv2Keresomezo" type="textbox" onfocus="this.value=''" placeholder="Keresés a cikkek között...">
+			</div>
+		
+			<div class="keresesSzuresBeviteliMezokDiv">
+				<label for="cikkekTablaDiv2SzuresArSzerintKisebb">Szűrés ár szerint</label><br>
+				<input id="cikkekTablaDiv2SzuresArSzerintKisebb" type="number" onfocus="this.value=''" placeholder="Ár kevesebb mint..."><br>
+				<input id="cikkekTablaDiv2SzuresArSzerintNagyobb" type="number" onfocus="this.value=''" placeholder="Ár több mint...">
+			</div>
+			<button id="cikkekTablaVasarloSzurokTorlese" type="reset">Szűrők törlése</button>
+		</form>
+		<h2>Árucikkek</h2>
+		<table id="cikkekTabla2" border="1" cellspacing="0">
+		
+			<thead>
+				<tr>
+					<th class="rendezesIdTH" title="Sorba rendezés">Termék ID</th>
+					<th class="rendezesMegnevezesTH" title="Rendezés betűrendben">Megnevezés</th>
+					<th class="rendezesArTH" title="Rendezés ár szerint">Ár (Ft)</th>
+					<th>Fotó</th>					
+					<th id="cikk_kosarba_cella_cimsor">Kosárba</th>
+				</tr>			
+			</thead>
+			
+			<tbody>
+			
+			</tbody>
+	
+		
+		</table>
+		</div>
+	</div>
+	
+	
+	
+	<div id="vasarlo">
+		<h2>Vásárlói felület</h2>
+		
+		<h3>Kosár</h3>
+		<button id="kosarTartalma" type="button"><img src="design/img/kosarGomb.jpg"></button>
+		<p id="szovegKosarUres">Az Ön kosara jelenleg üres.</p>
+		<p id="szovegKosarTartalma">A kosár tartalma:</p>
+		
+		<div id="kosarTablaDiv">
+		<table id="kosarTabla" border="1" cellspacing="0">
+			<thead>
+				<tr>
+					<th>Termék ID</th>
+					<th>Megnevezés</th>
+					<th>Ár (Ft)</th>
+					<th>Fotó</th>					
+					<th id="vevo_kosar_torol">Törlés</th>					
+				</tr>			
+			</thead>
+			<tfoot>
+			<td colspan="2">Összesen</td>
+			<td id="osszegzes" colspan="3" style="text-align:right; padding-right: 25px;"></td>
+			</tfoot>
+			<tbody>
+			
+			</tbody>
+		</table>
+		
+		</div>
+		
+		<button id="kosarUrit" type="button">Kosár ürítése</button>
+	
+	</div>
+	
+    
+    <script type="text/javascript" src="js/termek.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript">
+    
+	//windowhoz eseménykezelés hozzáadása
+	window.addEventListener('load', Window_Load_Handler, false);
+	
+	//Globális változók deklarálása
+	
+	//Admin felület 
+	var nodeAdminAccessButton;			//admin belépés gombja
+	var nodeAdminDiv;					//admin div
+	var nodeArticleDeletion;			//cikkek tábla th admin töröl cella
+	var nodeCimsorCikkTorleseTH			//torles_cella_cimsor
+	var nodeJsonDiv;					//json div
+	var nodesCikkekTombJSON;			//json div-be beíratandó cikkek json stringje   --legyen lokális?
+	var nodeBtnNewProduct;				//új termék mentése gomb
+	var nodeProductIDTextBox;			//új termék felvétele ID textbox
+	var nodeProductDescriptionTextBox; 	//új termék felvétele megnevezés textbox
+	var nodeProductPriceTextBox;   		//új termék felvétele ár textbox
+	var nodeProductFotoURLTextBox;  	// új termék felvétele foto url textbox
+	
+	
+	//Vevő felület
+	var nodeKosarTablaDiv;				//kosártábla divje
+	var nodeBtnVevoBelepes;				//vevő belépés gombja
+	var nodeVasarloDiv;					//vevő div
+	var nodeKosarTabla;					//kosár táblázat	
+	var nodeKosarTablaTBody;			//kosár táblázat tbody
+	var nodeKosarTR;					//kosár táblázat tbody tr
+	var nodeKosarTfoot;					//kosár tábla tfoot
+	var nodeBtnKosarTartalmaFogomb;		//kosár tartalmát kiírató gomb
+	var nodesKosarTomb;					//kezdetben [], a cikkeket tartalmazó tömb elemeit tesszük bele kosarba gomb lenyomásakor
+	var nodeSzovegKosarUres;			//Az Ön kosara jelenleg üres bekezdés
+	var nodeSzovegKosarTartalma;		//A kosár tartalma bekezdés
+	var nodeBtnKosarUrit;				//kosár ürítése gomb
+	
+	
+	//Általános felület 			
+	var nodeCikkekDiv;					//cikkek div
+	var nodeCikkekTablaDiv1;			//cikkek 1. div
+	var nodeCikkekTablaDiv2;			//cikkek 2. div
+	var nodesCikkekTomb;				//a cikkeket tartalmazó tömb
+	var nodeCikkekTablaTHeadTHkosar;	//cikkek táblázat fejléc th kosárba cella
+	var nodeCikkekTablaTBody;			//cikkek táblázat tbody
+	var nodeCikkekTabla2TBody;			//cikkek2 táblázat tbody
+	var nodeCikkekTablaTBodyTR;			//cikkek táblázat tbody tr
+	var nodesCikkekTD5VevoKosar;		//cikkek táblázat 'vevoKosar' osztályú td5 cellák
+	var nodesRendezesMegnevezesTH;		//cikkek táblázatok fejléc név szerinti rendezéshez
+	var nodesRendezesArTH;				//cikkek táblázatok fejléc ár szerinti rendezéshez
+	var nodesRendezesIdTH				//cikkek táblázatok fejléc ID szerinti rendezéshez
+	
+	var nodeCikkekTablaDiv1Keresomezo	//cikkek táblázat admin keresőmezője
+	var nodeCikkekTablaDiv2Keresomezo	//cikkek táblázat vásárló keresőmezője
+	var nodeCikkekTablaDiv1SzuresArSzerintKisebb	//cikkek táblázat admin ár szerinti kisebb szűrés mező
+	var nodeCikkekTablaDiv1SzuresArSzerintNagyobb	//cikkek táblázat admin ár szerinti nagyobb szűrés mező
+	var nodeCikkekTablaDiv2SzuresArSzerintKisebb	//cikkek táblázat vásárló ár szerinti kisebb szűrés mező
+	var nodeCikkekTablaDiv2SzuresArSzerintNagyobb	//cikkek táblázat vásárló ár szerinti nagyobb szűrés mező
+		
+	var nodeCikkekTablaAdminSzurokTorlese			//cikkek táblázat admin szűrők törlése gomb
+	var nodeCikkekTablaVasarloSzurokTorlese			//cikkek táblázat vásárló szűrők törlése gomb
+	
+	var nodeCikkekTablaDiv1Keresomezo		//cikkek táblázat admin keresés textbox
+	var nodeCikkekTablaDiv2Keresomezo		//cikkek táblázat vásárló keresés textbox
+	
+	
+	var objTermek = new Termek('0000', 'szappan', 300, 'http://www.w3.org/html5.jpg');  //termékobjektum
+
+	
+	
+	function BuborekosRendezesMegnevezesAsc(tombNeve) {
+		var temp = [];
+		for(var i=0; i<tombNeve.length-1; i++) {
+			for(var j=i+1; j<tombNeve.length; j++) {
+				if(tombNeve[i].megnevezes > tombNeve[j].megnevezes) {
+					temp.push(tombNeve[i], tombNeve[j]);
+					tombNeve[i] = temp[1];
+					tombNeve[j] = temp[0];
+					temp=[];
+				}
+			}				
+		}
+		return tombNeve;	
+	}
+	
+	function BuborekosRendezesMegnevezesDesc(tombNeve) {
+		var temp = [];
+		for(var i=0; i<tombNeve.length-1; i++) {
+			for(var j=i+1; j<tombNeve.length; j++) {
+				if(tombNeve[i].megnevezes < tombNeve[j].megnevezes) {
+					temp.push(tombNeve[i], tombNeve[j]);
+					tombNeve[i] = temp[1];
+					tombNeve[j] = temp[0];
+					temp=[];
+				}
+				
+			}			
+		}
+		return tombNeve;	
+	}
+	
+	function BuborekosRendezesArAsc(tombNeve) {
+		var temp = [];
+		for(var i=0; i<tombNeve.length-1; i++) {
+			for(var j=i+1; j<tombNeve.length; j++) {
+				if(tombNeve[i].ar > tombNeve[j].ar) {
+					temp.push(tombNeve[i], tombNeve[j]);
+					tombNeve[i] = temp[1];
+					tombNeve[j] = temp[0];
+					temp=[];
+				}
+			}				
+		}
+		return tombNeve;	
+	}
+	
+	function BuborekosRendezesArDesc(tombNeve) {
+		var temp = [];
+		for(var i=0; i<tombNeve.length-1; i++) {
+			for(var j=i+1; j<tombNeve.length; j++) {
+				if(tombNeve[i].ar < tombNeve[j].ar) {
+					temp.push(tombNeve[i], tombNeve[j]);
+					tombNeve[i] = temp[1];
+					tombNeve[j] = temp[0];
+					temp=[];
+				}
+			}				
+		}
+		return tombNeve;	
+	}
+	
+	function BuborekosRendezesIdAsc(tombNeve) {
+		var temp = [];
+		for(var i=0; i<tombNeve.length-1; i++) {
+			for(var j=i+1; j<tombNeve.length; j++) {
+				if(tombNeve[i].termekID > tombNeve[j].termekID) {
+					temp.push(tombNeve[i], tombNeve[j]);
+					tombNeve[i] = temp[1];
+					tombNeve[j] = temp[0];
+					temp=[];
+				}
+			}				
+		}
+		return tombNeve;	
+	}
+	
+	function BuborekosRendezesIdDesc(tombNeve) {
+		var temp = [];
+		for(var i=0; i<tombNeve.length-1; i++) {
+			for(var j=i+1; j<tombNeve.length; j++) {
+				if(tombNeve[i].termekID < tombNeve[j].termekID) {
+					temp.push(tombNeve[i], tombNeve[j]);
+					tombNeve[i] = temp[1];
+					tombNeve[j] = temp[0];
+					temp=[];
+				}
+			}				
+		}
+		return tombNeve;	
+	}
+	
+	//window eseménykezelő függvény: globális változók értékadása, elementekhez eseménykezelők hozzáadása
+	function Window_Load_Handler() {
+		console.log('A DOM-fa felépült.');  //kipróbáljuk
+		
+		//globális változók értékadása
+		nodeAdminDiv = document.querySelector('#admin');
+		nodeCikkekDiv = document.getElementById('cikkek');
+		nodeVasarloDiv = document.querySelector('#vasarlo');
+		
+		nodeKosarTablaDiv = document.querySelector('#kosarTablaDiv');
+		nodeCikkekTablaDiv1 = document.querySelector('#cikkekTablaDiv1');
+		nodeCikkekTablaDiv2 = document.querySelector('#cikkekTablaDiv2');
+		
+		nodeArticleDeletion = document.getElementById('admin_torol');
+		nodeCikkekTablaTHeadTHkosar = document.getElementById('vevo_kosarba');
+		nodesCikkekTD5VevoKosar = document.getElementsByClassName('vevoKosar');
+		nodesAdminTorol = document.getElementsByClassName('adminTorol');
+		nodeCimsorCikkTorleseTH = document.getElementById('cikk_torles_cella_cimsor');
+		
+		nodeCikkekTablaTBody = document.querySelector('#cikkekTabla tbody');
+		nodeCikkekTabla2TBody = document.querySelector('#cikkekTabla2 tbody');
+		nodeKosarTablaTBody = document.querySelector('#kosarTabla tbody');
+		nodeKosarTablaTBodyTBodyTD6 = document.querySelector('#kosarTabla tbody td:nth-child(6)');
+		nodeSzovegKosarUres = document.querySelector('#szovegKosarUres');
+		nodeSzovegKosarTartalma = document.querySelector('#szovegKosarTartalma');
+		nodeKosarTabla = document.querySelector('#kosarTabla');
+		
+		
+					
+	
+		nodesCikkekTomb = [
+			new Termek('0001', 'Camera', 20000, 'design/img/kep1.jpg'),
+			new Termek('0002', 'E-book reader', 15000, 'design/img/kep2.jpg'),
+			new Termek('0003', 'Typewriter', 3000, 'design/img/kep3.jpg'),
+			new Termek('0004', 'Laptop', 3000,'design/img/kep4.jpg'),
+			new Termek('0005', 'LED TV', 150000,'design/img/kep5.jpg'),
+			new Termek('0006', 'Cellphone', 120000, 'design/img/kep6.jpg'),
+			new Termek('0007', 'Smartwatch', 7000, 'design/img/kep7.jpg'),
+			new Termek('0008', 'Radio', 4000,'design/img/kep8.jpg'),
+			new Termek('0009', 'TV', 600, 'design/img/kep9.jpg')		
+		];
+		
+		
+		drawTableToTBodyCikkek(nodesCikkekTomb, nodeCikkekTablaTBody)		
+		nodesKosarTomb = [];
+		 		
+		/*eseménykezelők definiálása, eseménykezelő fv hozzáadása*/
+		nodeAdminAccessButton = document.querySelector('#btnAdmin');		//admin belépés gombja - általános felület
+		nodeAdminAccessButton.addEventListener("click", AdminAccessButton_Click_Handler, false);
+		
+		nodeBtnVevoBelepes = document.getElementById('btnVasarlo');		//vevő belépés gombja - általános felület
+		nodeBtnVevoBelepes.addEventListener("click", ClientAccessButton_Click_Handler, false);
+		
+		nodeBtnNewProduct = document.getElementById('btnNewProduct');		//új termék mentése gomb - admin felület
+		nodeBtnNewProduct.addEventListener("click", BtnNewProduct_Click_Handler, false);
+		
+		nodeBtnKosarTartalmaFogomb = document.getElementById('kosarTartalma');	//kosár tartalmát kiírató gomb - vevő felület
+		nodeBtnKosarTartalmaFogomb.addEventListener("click", BtnKosarTartalma_Click_Handler, false );
+		
+		nodeBtnKosarUrit = document.getElementById('kosarUrit');			//kosár ürítése gomb - vevő felület
+		nodeBtnKosarUrit.addEventListener("click", BtnKosarUrit_Click_Handler, false );
+		
+		nodesRendezesMegnevezesTH=document.querySelectorAll('.rendezesMegnevezesTH');
+		
+		for(i=0; i<nodesRendezesMegnevezesTH.length; i++) {
+		nodesRendezesMegnevezesTH[i].addEventListener("click", RendezesMegnevezesTH_Click_Handler, false);
+			}
+			
+		nodesRendezesArTH=document.querySelectorAll('.rendezesArTH');
+		for(i=0; i<nodesRendezesMegnevezesTH.length; i++) {
+		nodesRendezesArTH[i].addEventListener("click", RendezesArTH_Click_Handler, false);
+			}
+			
+		nodesRendezesIdTH=document.querySelectorAll('.rendezesIdTH');
+		for(i=0; i<nodesRendezesIdTH.length; i++) {
+		nodesRendezesIdTH[i].addEventListener("click", RendezesIdTH_Click_Handler, false);
+			}
+			
+	}
+	
+		nodeCikkekTablaDiv1Keresomezo = document.querySelector('#cikkekTablaDiv1Keresomezo');
+		nodeCikkekTablaDiv1Keresomezo.addEventListener('change', CikkekTablaDiv1Keresomezo_Change_Handler, false);
+		
+		nodeCikkekTablaDiv2Keresomezo = document.querySelector('#cikkekTablaDiv2Keresomezo');
+		nodeCikkekTablaDiv2Keresomezo.addEventListener('change', CikkekTablaDiv2Keresomezo_Change_Handler, false);
+		
+		nodeCikkekTablaDiv1SzuresArSzerintKisebb = document.querySelector('#cikkekTablaDiv1SzuresArSzerintKisebb');
+		nodeCikkekTablaDiv1SzuresArSzerintKisebb.addEventListener('change', CikkekTablaDiv1SzuresArSzerintKisebb_Change_Handler, false);
+		nodeCikkekTablaDiv1SzuresArSzerintNagyobb = document.querySelector('#cikkekTablaDiv1SzuresArSzerintNagyobb');
+		nodeCikkekTablaDiv1SzuresArSzerintNagyobb.addEventListener('change', CikkekTablaDiv1SzuresArSzerintNagyobb_Change_Handler, false);
+		
+		nodeCikkekTablaDiv2SzuresArSzerintKisebb = document.querySelector('#cikkekTablaDiv2SzuresArSzerintKisebb');
+		nodeCikkekTablaDiv2SzuresArSzerintKisebb.addEventListener('change', CikkekTablaDiv2SzuresArSzerintKisebb_Change_Handler, false);
+		
+		nodeCikkekTablaDiv2SzuresArSzerintNagyobb = document.querySelector('#cikkekTablaDiv2SzuresArSzerintNagyobb');
+		nodeCikkekTablaDiv2SzuresArSzerintNagyobb.addEventListener('change', CikkekTablaDiv2SzuresArSzerintNagyobb_Change_Handler, false);
+		
+		nodeCikkekTablaAdminSzurokTorlese = document.getElementById('cikkekTablaAdminSzurokTorlese');
+		nodeCikkekTablaAdminSzurokTorlese.addEventListener('click', CikkekTablaAdminSzurokTorlese_Click_Handler, false);
+		
+		
+		nodeCikkekTablaVasarloSzurokTorlese = document.getElementById('cikkekTablaVasarloSzurokTorlese');
+		nodeCikkekTablaVasarloSzurokTorlese.addEventListener('click', CikkekTablaVasarloSzurokTorlese_Click_Handler, false);
+	
+       
+    </script>
+</body>
+</html>

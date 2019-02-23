@@ -1,0 +1,318 @@
+button {
+	width: 150px;
+	text-align: left;
+	
+}
+
+#btnAdmin {
+	display: block;
+	position: absolute;
+	right: 5%;
+	top: 10px;
+}
+
+#btnVasarlo {
+	display: block;
+	position: absolute;
+	right: 5%;
+	top: 40px;
+}
+
+#admin{
+	display: none;
+}
+
+#cikkek {
+	width: 100%;
+	margin: auto;
+}
+
+#cikkekTablaDiv1, #cikkekTablaDiv2{
+	display: none;
+	
+}
+
+#cikkekTabla {
+	width: 100%;
+	margin: auto;
+}
+
+#kosarTabla {
+	width: 100%;
+	margin-top: 200px;
+	visibility: hidden;
+	
+}
+
+#cikkek tr td:nth-child(5) {
+	padding: 24px 0;
+	
+	
+}
+
+#vasarlo{
+	display: none;
+}
+
+#admin_torol{
+	display: none;	
+}
+
+#vevo_kosarba{
+	display: none;	
+}
+
+h1, h2 {
+	text-align: center;
+	font-size: 24pt;
+}
+
+h3 {
+	text-align: center;
+	font-size: 20pt;
+	
+}
+
+.form-div {
+	display: block;
+	height: 50px;
+	margin-top: 30px;
+	border: none;
+	
+}
+
+input {
+	width: 500px;
+	padding: 10px;
+	font-size: 20px;
+	
+}
+
+fieldset {
+	
+	height: 500px;
+	border: none;
+	
+}
+
+legend {
+	font-weight: bold;
+	font-size: 18pt;
+	
+}
+
+label {
+	font-size: 20px;
+	
+}
+
+#btnNewProduct{
+	width: 100px;
+	padding: 10px;
+	position: absolute;
+	left: 15%;
+	top: 600px;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+	
+}
+
+div {
+	display: inline-block;	
+	height: 1500px;
+	
+}
+
+table {
+	text-align: center;
+	margin: auto;
+	
+}
+
+table th {
+	padding:  5px 8px;
+}
+
+
+
+.vevoKosar, .adminTorol{
+	height: 100px;
+	
+}
+
+.vevoKosar button, .adminTorol button {
+	margin: 10px;
+	width: 50px;
+	height: 50px;
+	border: none;
+	background-color: transparent;
+	vertical-align: middle;
+	outline: none;
+	cursor: pointer;
+	
+}
+
+.vevoKosar button img, .adminTorol button img{
+	margin-left: -15px;
+	margin-top: 3px;
+	padding: 0;
+	width: 70px;
+	height: 70px;
+	vertical-align: middle;
+	
+}
+
+.artDelete, .shoppingCart {
+	width: 50px;
+	
+	vertical-align: middle;
+	text-align: left;
+	border: none;
+	background-color: white;
+	cursor: pointer;
+	padding-left: 0;
+	margin-left: 0;
+	width: 40px;
+	height: 72px;
+	font-size: 18px;
+	
+	
+}
+
+.shoppingCart {
+	padding: 10px 0;
+	
+}
+
+
+#kosarTartalma:focus{
+	
+	outline: none;
+}
+
+
+#kosarUrit{
+	position: absolute;
+	top: 5%;
+	left: 67%;
+	text-align: center;
+	padding: 10px;
+	border-radius: 5px;
+	font-size: 20px;
+	cursor: pointer;
+	display: none;
+	
+}
+
+.artDelete img, .shoppingCart img{
+	width: 60px;
+	vertical-align: middle;
+	text-align: left;
+	cursor: pointer;
+	padding-left: 0;
+	margin-left: 0;
+	
+}
+
+td img {
+	width: 100px;
+	
+}
+
+#kosarTartalma {
+	width: 50px;
+	background-color: white;
+	border: none;
+	cursor: pointer;
+	position: absolute;
+	left: 44%
+	
+}
+
+#kosarTartalma img {
+	width: 80px;
+	
+}
+#vasarlo p {
+	width: 250px;
+	text-align: center;
+	padding-left: 0;
+	position: absolute;
+	left: 35%;
+	top: 15%
+	
+}
+
+.kosarTablaTorles {	
+	width: 40px;
+	height: 50px;
+	font-size: 18px;
+	margin: 0;
+}
+
+#kosarTabla tr td:nth-child(4){
+	padding: 0;
+	width: 50px;
+	height: 50px;
+	
+}
+
+th, td {
+	font-size: 20px;
+	
+}
+
+tfoot td {
+	font-weight: bold;
+	
+}
+
+#szovegKosarUres  {
+	font-size: 22px;
+	opacity: 0;
+	
+}
+
+#szovegKosarTartalma {
+	font-size: 22px;
+	opacity: 0;
+	
+}
+
+.keresesSzuresBeviteliMezokDiv{
+	height: 50px;
+	vertical-align: top;
+	margin-bottom: 30px;
+	margin-right: 15px;
+
+	
+}
+
+#cikkekTablaDiv1Keresomezo, #cikkekTablaDiv2Keresomezo, #cikkekTablaDiv1SzuresArSzerintKisebb, #cikkekTablaDiv2SzuresArSzerintKisebb, #cikkekTablaDiv1SzuresArSzerintNagyobb, #cikkekTablaDiv2SzuresArSzerintNagyobb {
+	width: 200px;
+	padding: 5px;
+	margin-top: 5px;
+	border: 2px solid #aaa;
+	border-radius: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	background-color: #ddd;
+	
+}
+#cikkekTablaVasarloSzurokTorlese, #cikkekTablaAdminSzurokTorlese{
+	width: 65px;
+	padding: 5px;
+	margin-top: 30px;
+	border: 2px solid #aaa;
+	border-radius: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	cursor: pointer;
+	
+}
+
+#cikkekTablaDiv1Keresomezo:focus, #cikkekTablaDiv2Keresomezo:focus, #cikkekTablaDiv1SzuresArSzerintKisebb:focus, #cikkekTablaDiv2SzuresArSzerintKisebb:focus, #cikkekTablaDiv1SzuresArSzerintNagyobb:focus, #cikkekTablaDiv2SzuresArSzerintNagyobb:focus #cikkekTablaVasarloSzurokTorlese:focus, #cikkekTablaAdminSzurokTorlese:focus{
+	outline: none;
+	
+}
