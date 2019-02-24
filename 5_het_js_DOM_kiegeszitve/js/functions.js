@@ -340,7 +340,8 @@ function BtnKosarUrit_Click_Handler() {
 
 
 function RendezesMegnevezesTH_Click_Handler() {
-	
+			
+		
 		if(nodesCikkekTomb[0].megnevezes<nodesCikkekTomb[1].megnevezes && nodesCikkekTomb[1].megnevezes<nodesCikkekTomb[2].megnevezes) {
 			var nodesCikkekTombMegnevDesc= BuborekosRendezesMegnevezesDesc(nodesCikkekTomb);
 			nodeCikkekTablaTBody.innerText = '';
@@ -355,6 +356,8 @@ function RendezesMegnevezesTH_Click_Handler() {
 			drawTableToTBodyCikkekKosarba(nodesCikkekTombMegnevAsc, nodeCikkekTabla2TBody);
 			
 		}
+		
+		
 	
 }
 

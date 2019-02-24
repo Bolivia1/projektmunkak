@@ -231,10 +231,11 @@
 	
 	
 	function BuborekosRendezesMegnevezesAsc(tombNeve) {
-		var temp = [];
+		var temp = [];		
+		
 		for(var i=0; i<tombNeve.length-1; i++) {
 			for(var j=i+1; j<tombNeve.length; j++) {
-				if(tombNeve[i].megnevezes > tombNeve[j].megnevezes) {
+				if(tombNeve[i].megnevezes.localeCompare(tombNeve[j].megnevezes) > 0) {
 					temp.push(tombNeve[i], tombNeve[j]);
 					tombNeve[i] = temp[1];
 					tombNeve[j] = temp[0];
@@ -246,17 +247,17 @@
 	}
 	
 	function BuborekosRendezesMegnevezesDesc(tombNeve) {
-		var temp = [];
+		var temp = [];		
+		
 		for(var i=0; i<tombNeve.length-1; i++) {
 			for(var j=i+1; j<tombNeve.length; j++) {
-				if(tombNeve[i].megnevezes < tombNeve[j].megnevezes) {
+				if(tombNeve[i].megnevezes.localeCompare(tombNeve[j].megnevezes) < 0) {
 					temp.push(tombNeve[i], tombNeve[j]);
 					tombNeve[i] = temp[1];
 					tombNeve[j] = temp[0];
 					temp=[];
 				}
-				
-			}			
+			}				
 		}
 		return tombNeve;	
 	}
