@@ -278,20 +278,23 @@ function AdminAccessButton_Click_Handler() {
 		var btnAdminTorles = event.currentTarget;
 		var termekID = btnAdminTorles.getAttribute('data-termekid');
 		
-		console.log(nodeCikkekTablaDiv1.getAttribute('style'));		//display: none
-		if (nodeCikkekTablaDiv1.getAttribute('style')!==('display')) {
+			
+		if(nodeCikkekTablaDiv1.style.display=='inline-block') {			
+			Kivagas(nodesCikkekTomb, termekID);		
+			nodeCikkekTablaTBody.innerText = '';
+			drawTableToTBodyCikkek(nodesCikkekTomb, nodeCikkekTablaTBody);
+			
+		}
+		
+		if(nodeCikkekTablaDiv2.style.display=='inline-block') {	
 			Kivagas(nodesKosarTomb, termekID);
 			nodeKosarTablaTBody.innerText = '';
 			drawTableToTBodyCikkek(nodesKosarTomb, nodeKosarTablaTBody);
 			var Osszesen = document.getElementById('osszegzes');
 			var kosarOsszege = osszegzes(nodesKosarTomb);
 			Osszesen.innerHTML='<b>'+kosarOsszege+'</b>';
-			
-		} else if (nodeCikkekTablaDiv1.getAttribute('style')==('display: inline-block')){
-			Kivagas(nodesCikkekTomb, termekID);		
-			nodeCikkekTablaTBody.innerText = '';
-			drawTableToTBodyCikkek(nodesCikkekTomb, nodeCikkekTablaTBody);
-		}
+						
+		}		
 		
 	}
 	
@@ -361,10 +364,9 @@ function RendezesMegnevezesTH_Click_Handler() {
 	
 }
 
-function RendezesArTH_Click_Handler() {
-		console.log('Hello');
-		console.log(BuborekosRendezesArDesc(nodesCikkekTomb));
-		if(nodesCikkekTomb[0].ar<nodesCikkekTomb[1].ar && nodesCikkekTomb[1].ar<nodesCikkekTomb[2].ar) {
+function RendezesArTH_Click_Handler() {		
+		
+		if(parseInt(nodesCikkekTomb[0].ar)<=parseInt(nodesCikkekTomb[1].ar) && parseInt(nodesCikkekTomb[1].ar)<=parseInt(nodesCikkekTomb[2].ar)) {
 			var nodesCikkekTombArDesc= BuborekosRendezesArDesc(nodesCikkekTomb);
 			nodeCikkekTablaTBody.innerText = '';
 			drawTableToTBodyCikkek(nodesCikkekTombArDesc, nodeCikkekTablaTBody);
@@ -382,7 +384,6 @@ function RendezesArTH_Click_Handler() {
 }
 
 function RendezesIdTH_Click_Handler() {
-		console.log('Hello');
 		if(nodesCikkekTomb[0].termekID<nodesCikkekTomb[1].termekID && nodesCikkekTomb[1].termekID<nodesCikkekTomb[2].termekID) {
 			var nodesCikkekTombIdDesc= BuborekosRendezesIdDesc(nodesCikkekTomb);
 			nodeCikkekTablaTBody.innerText = '';
@@ -403,7 +404,6 @@ function RendezesIdTH_Click_Handler() {
 function CikkekTablaDiv1SzuresArSzerintKisebb_Change_Handler() {
 		var evtTarget = event.target;
 		var keresettAr = parseInt(evtTarget.value);
-		console.log(keresettAr);
 		
 		if(isNaN(keresettAr)) {
 				alert('Ide számot kell írni!');
@@ -448,7 +448,6 @@ function CikkekTablaDiv2SzuresArSzerintKisebb_Change_Handler() {
 function CikkekTablaDiv1SzuresArSzerintNagyobb_Change_Handler() {
 	var evtTarget = event.target;
 		var keresettAr = parseInt(evtTarget.value);
-		console.log(keresettAr);
 		
 		if(isNaN(keresettAr)) {
 				alert('Ide számot kell írni!');

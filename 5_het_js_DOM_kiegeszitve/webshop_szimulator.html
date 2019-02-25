@@ -231,15 +231,16 @@
 	
 	
 	function BuborekosRendezesMegnevezesAsc(tombNeve) {
-		var temp = [];		
+		//var temp = [];		
 		
 		for(var i=0; i<tombNeve.length-1; i++) {
 			for(var j=i+1; j<tombNeve.length; j++) {
 				if(tombNeve[i].megnevezes.localeCompare(tombNeve[j].megnevezes) > 0) {
-					temp.push(tombNeve[i], tombNeve[j]);
+					//temp.push(tombNeve[i], tombNeve[j]);
+					var temp=[tombNeve[i], tombNeve[j]];
 					tombNeve[i] = temp[1];
 					tombNeve[j] = temp[0];
-					temp=[];
+					//temp=[];
 				}
 			}				
 		}
@@ -247,15 +248,16 @@
 	}
 	
 	function BuborekosRendezesMegnevezesDesc(tombNeve) {
-		var temp = [];		
+		//var temp = [];		
 		
 		for(var i=0; i<tombNeve.length-1; i++) {
 			for(var j=i+1; j<tombNeve.length; j++) {
 				if(tombNeve[i].megnevezes.localeCompare(tombNeve[j].megnevezes) < 0) {
-					temp.push(tombNeve[i], tombNeve[j]);
+					//temp.push(tombNeve[i], tombNeve[j]);
+					var temp=[tombNeve[i], tombNeve[j]];
 					tombNeve[i] = temp[1];
 					tombNeve[j] = temp[0];
-					temp=[];
+					//temp=[];
 				}
 			}				
 		}
@@ -263,14 +265,15 @@
 	}
 	
 	function BuborekosRendezesArAsc(tombNeve) {
-		var temp = [];
+		//var temp = [];
 		for(var i=0; i<tombNeve.length-1; i++) {
 			for(var j=i+1; j<tombNeve.length; j++) {
 				if(tombNeve[i].ar > tombNeve[j].ar) {
-					temp.push(tombNeve[i], tombNeve[j]);
+					var temp=[tombNeve[i], tombNeve[j]];
+					//temp.push(tombNeve[i], tombNeve[j]);
 					tombNeve[i] = temp[1];
 					tombNeve[j] = temp[0];
-					temp=[];
+					//temp=[];
 				}
 			}				
 		}
@@ -278,14 +281,15 @@
 	}
 	
 	function BuborekosRendezesArDesc(tombNeve) {
-		var temp = [];
+		//var temp = [];
 		for(var i=0; i<tombNeve.length-1; i++) {
 			for(var j=i+1; j<tombNeve.length; j++) {
 				if(tombNeve[i].ar < tombNeve[j].ar) {
-					temp.push(tombNeve[i], tombNeve[j]);
+				var temp=[tombNeve[i], tombNeve[j]];
+					//temp.push(tombNeve[i], tombNeve[j]);
 					tombNeve[i] = temp[1];
 					tombNeve[j] = temp[0];
-					temp=[];
+					//temp=[];
 				}
 			}				
 		}
@@ -365,7 +369,7 @@
 		];
 		
 		
-		drawTableToTBodyCikkek(nodesCikkekTomb, nodeCikkekTablaTBody)		
+		drawTableToTBodyCikkek(nodesCikkekTomb, nodeCikkekTablaTBody);		
 		nodesKosarTomb = [];
 		 		
 		/*eseménykezelők definiálása, eseménykezelő fv hozzáadása*/
